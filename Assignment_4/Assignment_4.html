@@ -1,0 +1,580 @@
+ <!DOCTYPE html>
+<!--
+   Name: 
+   File: assignment-1.html
+   Date Created: 2023-01-24
+   Date Updated: 2023-03-17
+   Purpose: MIS 3371 Homework 2...Learn HTML and creating a form for my cousin's clothing company
+-->
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>dawnxdusk clothing signup form</title>
+    <link rel="stylesheet" href="./Assignment_4.css" />
+  </head>
+
+  <body>
+    <div class="hover-box" id="hover-box">
+      <!-- Floating Box -->
+      <div class="fixed-header">
+        <!-- Header that doesn't scroll with form -->
+        <h1>dawnxdusk Signup Form</h1>
+        <p><b>Please fill in this form to create an account</b></p>
+        <p>Scroll down to submit</p>
+        <p
+          style="text-align: left; font-size: 13px; margin-left: 5px"
+          id="date"
+        ></p>
+        <hr style="width: 680px" />
+      </div>
+      <div class="formContainer">
+        <img id="fixed-image" src="../IMG_5204.jpeg" />
+        <form
+          style="overflow: scroll; position: relative; overflow-x: hidden"
+          id="myForm"
+        >
+          <!-- Formatted form so that it can scroll and not overflow outside the boundaries of the hover box -->
+          <iframe
+            src="https://www.instagram.com/p/C15lkGaxUz8/embed"
+            width="400"
+            height="480"
+            frameborder="0"
+            scrolling="no"
+            allowtransparency="true"
+          ></iframe>
+          <div style="margin-bottom: 20px">
+            Welcome back, <span id="cookie-first-name"></span>!
+          </div>
+          <div style="margin-bottom: 20px" id="cookie-container">
+            <tr>
+              <td>Not <span id="second-first-name-cookie"></span>?</td>
+            </tr>
+            <tr>
+              <td>
+                <a href="javascript:doShit()">Start as new user!</a>
+              </td>
+            </tr>
+          </div>
+          <table>
+            <tr>
+              <!-- New table row -->
+              <td>
+                <!-- New table data cell -->
+                <input
+                  type="text"
+                  autofocus="autofocus"
+                  style="display: none"
+                />
+                <label for="fullname"><b>Full name: </b></label>
+                <input
+                  name="firstname"
+                  type="text"
+                  id="firstname"
+                  placeholder="First name"
+                  required
+                  minlength="2"
+                  maxlength="30"
+                  title="What is your first name?"
+                  onblur="validateFirstName(event)"
+                />
+              </td>
+              <td>
+                <input
+                  name="middleinit"
+                  type="text"
+                  id="midinit"
+                  placeholder="M.I."
+                  maxlength="1"
+                  style="width: 50px"
+                  title="What is your middle inital?"
+                  onblur="validateMiddleInitial(event)"
+                />
+              </td>
+              <td>
+                <input
+                  name="lastname"
+                  type="text"
+                  id="lastname"
+                  placeholder="Last name"
+                  required
+                  minlength="2"
+                  maxlength="30"
+                  title="What is your last name?"
+                  onblur="validateLastName(event)"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label for="dob"><b>Date of birth: </b></label>
+                <input
+                  name="dob"
+                  type="date"
+                  id="dob"
+                  required
+                  title="When were you born?"
+                  onblur="validateDOB(event)"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label for="address1"><b>Address Line 1: </b></label>
+                <input
+                  name="address1"
+                  type="text"
+                  id="address1"
+                  placeholder="42 Wallaby Way"
+                  maxlength="30"
+                  required
+                  title="Where do you live?"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label for="address2"><b>Line 2 (Optional): </b></label>
+                <input
+                  name="address2"
+                  type="text"
+                  id="address2"
+                  placeholder="Apartment #/Suite #/PO Box"
+                  maxlength="30"
+                  title="Is there more?"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label for="city"><b>City: </b></label>
+                <input
+                  name="city"
+                  type="text"
+                  id="city"
+                  placeholder="Enter city name"
+                  maxlength="30"
+                  title="What city do you live in?"
+                />
+              </td>
+              <td>
+                <select
+                  name="state"
+                  style="width: 60px"
+                  title="What state do you live in?"
+                >
+                  <option value="AL">AL</option>
+                  <option value="AK">AK</option>
+                  <option value="AR">AR</option>
+                  <option value="AZ">AZ</option>
+                  <option value="CA">CA</option>
+                  <option value="CO">CO</option>
+                  <option value="CT">CT</option>
+                  <option value="DC">DC</option>
+                  <option value="DE">DE</option>
+                  <option value="FL">FL</option>
+                  <option value="GA">GA</option>
+                  <option value="HI">HI</option>
+                  <option value="IA">IA</option>
+                  <option value="ID">ID</option>
+                  <option value="IL">IL</option>
+                  <option value="IN">IN</option>
+                  <option value="KS">KS</option>
+                  <option value="KY">KY</option>
+                  <option value="LA">LA</option>
+                  <option value="MA">MA</option>
+                  <option value="MD">MD</option>
+                  <option value="ME">ME</option>
+                  <option value="MI">MI</option>
+                  <option value="MN">MN</option>
+                  <option value="MO">MO</option>
+                  <option value="MS">MS</option>
+                  <option value="MT">MT</option>
+                  <option value="NC">NC</option>
+                  <option value="NE">NE</option>
+                  <option value="NH">NH</option>
+                  <option value="NJ">NJ</option>
+                  <option value="NM">NM</option>
+                  <option value="NV">NV</option>
+                  <option value="NY">NY</option>
+                  <option value="ND">ND</option>
+                  <option value="OH">OH</option>
+                  <option value="OK">OK</option>
+                  <option value="OR">OR</option>
+                  <option value="PA">PA</option>
+                  <option value="PR">PR</option>
+                  <option value="RI">RI</option>
+                  <option value="SC">SC</option>
+                  <option value="SD">SD</option>
+                  <option value="TN">TN</option>
+                  <option value="TX" selected>TX</option>
+                  <option value="UT">UT</option>
+                  <option value="VT">VT</option>
+                  <option value="VA">VA</option>
+                  <option value="WA">WA</option>
+                  <option value="WI">WI</option>
+                  <option value="WV">WV</option>
+                  <option value="WY">WY</option>
+                </select>
+              </td>
+              <td>
+                <!-- <input
+                  name="zip"
+                  type="text"
+                  id="zip"
+                  placeholder="Zip"
+                  maxlength="10"
+                  minlength="5"
+                  size="10"
+                  pattern="[^0-9]*"
+                /> -->
+                <input
+                  name="zip"
+                  type="text"
+                  id="zip"
+                  placeholder="Zip"
+                  maxlength="10"
+                  minlength="5"
+                  size="10"
+                  title="What is your zip code?"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div style="height: 20px"></div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label for="email"><b>Email: </b></label>
+                <input
+                  name="email"
+                  type="email"
+                  id="email"
+                  placeholder="Email@email.com"
+                  title="What is your email?"
+                  onblur="validateEmail(event)"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label for="username"><b>Username: </b></label>
+                <input
+                  name="username"
+                  type="text"
+                  id="username"
+                  placeholder="2-20 characters"
+                  required
+                  minlength="2"
+                  maxlength="20"
+                  size="20"
+                  title="What do you want your username to be?"
+                  onblur="validateUsername(event)"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label for="PASSWORD"><b>Password: </b></label>
+                <input
+                  name="PASSWORD"
+                  type="password"
+                  id="password"
+                  placeholder="********"
+                  required
+                  minlength="5"
+                  maxlength="25"
+                  size="20"
+                  onkeyup="onPasswordChange()"
+                  title="What is your password?"
+                  onblur="validatePassword(event)"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label for="PASSWORDcheck"></label>
+                <input
+                  for="PASSWORDcheck"
+                  type="password"
+                  id="PASSWORDcheck"
+                  placeholder="Re-enter password"
+                  required
+                  minlength="5"
+                  maxlength="25"
+                  size="20"
+                  onkeyup="onPasswordChange()"
+                  title="What was your password again?"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label for="DL#"><b>DL Number: </b></label>
+                <!-- <input
+                  name="DL#"
+                  type="PASSWORD"
+                  id="DL#"
+                  placeholder="********"
+                  size="20"
+                  minlength="7"
+                  maxlength="8"
+                  required
+                  pattern="[^0-9]*"
+                /> -->
+                <input
+                  name="DL#"
+                  type="PASSWORD"
+                  id="DL#"
+                  placeholder="********"
+                  size="20"
+                  minlength="7"
+                  maxlength="8"
+                  required
+                  title="What is your drivers license number?"
+                />
+              </td>
+            </tr>
+          </table>
+
+          <label for="reference"><b>How did you hear about us?: </b></label>
+          <textarea
+            id="reference"
+            name="reference"
+            rows="3"
+            cols="50"
+            placeholder="Instagram, Snapchat, a friend, etc"
+            style="resize: none"
+            title="Who told you about us?"
+          ></textarea
+          ><br />
+          <div style="height: 20px"></div>
+          <fieldset class="fieldset-auto-width">
+            <legend><b>Gender</b></legend>
+            <div>
+              <label
+                class="radioContainer"
+                id="male"
+                style="font-weight: normal"
+                >Male
+                <input type="radio" name="gender" />
+                <span class="radioCheckmark"></span>
+              </label>
+            </div>
+            <div>
+              <label
+                class="radioContainer"
+                id="female"
+                style="font-weight: normal"
+                >Female
+                <input type="radio" name="gender" />
+                <span class="radioCheckmark"></span>
+              </label>
+            </div>
+          </fieldset>
+          <br />
+          <fieldset class="fieldset-auto-width">
+            <legend><b>Interested in: </b></legend>
+            <div>
+              <label
+                class="checkboxContainer"
+                for="hats"
+                style="font-weight: normal"
+                >Hats
+                <input
+                  type="checkbox"
+                  id="hats"
+                  name="interests"
+                  value="hats"
+                />
+                <span class="checkmark"></span>
+              </label>
+            </div>
+            <div>
+              <label
+                class="checkboxContainer"
+                for="hijabs"
+                style="font-weight: normal"
+                >Hijab Caps
+                <input
+                  type="checkbox"
+                  id="hijabs"
+                  name="interests"
+                  value="hijabs"
+                />
+                <span class="checkmark"></span>
+              </label>
+            </div>
+            <div>
+              <label
+                class="checkboxContainer"
+                for="hoodies"
+                style="font-weight: normal"
+                >Hoodies
+                <input
+                  type="checkbox"
+                  id="hoodies"
+                  name="interests"
+                  value="hoodies"
+                />
+                <span class="checkmark"></span>
+              </label>
+            </div>
+            <div>
+              <label
+                class="checkboxContainer"
+                for="sweaters"
+                style="font-weight: normal"
+                >Sweaters
+                <input
+                  type="checkbox"
+                  id="sweaters"
+                  name="interests"
+                  value="sweaters"
+                />
+                <span class="checkmark"></span>
+              </label>
+            </div>
+            <div>
+              <label
+                class="checkboxContainer"
+                for="sweatpants"
+                style="font-weight: normal"
+                >Sweatpants
+                <input
+                  type="checkbox"
+                  id="sweatpants"
+                  name="interests"
+                  value="sweatpants"
+                />
+                <span class="checkmark"></span>
+              </label>
+            </div>
+            <div>
+              <label
+                class="checkboxContainer"
+                for="socks"
+                style="font-weight: normal"
+                >Socks
+                <input
+                  type="checkbox"
+                  id="socks"
+                  name="interests"
+                  value="socks"
+                />
+                <span class="checkmark"></span>
+              </label>
+            </div>
+          </fieldset>
+
+          <div style="height: 20px"></div>
+
+          <label for="satis" style="width: 250px"
+            ><b
+              >How satisfied are you with our products? Right means more!</b
+            ></label
+          >
+          <label style="text-align: right" id="sliderValue">50</label>
+          <div class="slidecontainer">
+            <input
+              type="range"
+              min="1"
+              max="100"
+              value="50"
+              class="slider"
+              id="myRange"
+              oninput="changeSliderValue(this.value)"
+              style="border-bottom: 0em solid #000000"
+              title="Do you like our stuff?"
+            />
+          </div>
+
+          <div style="height: 50px"></div>
+          <div>
+            <div>
+              <label
+                class="checkboxContainer"
+                for="rememberMe"
+                style="font-weight: normal; font-size: 15px"
+                >Remember me
+                <input
+                  type="checkbox"
+                  id="rememberMe"
+                  value="rememberMe"
+                  checked
+                />
+                <span class="checkmark"></span>
+              </label>
+            </div>
+          </div>
+          <div class="button-container" title="Do you want to clear the form?">
+            <div>
+              <button id="clrbtn">
+                <p id="clrbtnText">Clear All</p>
+                <div class="check-box">
+                  <svg viewBox="0 0 50 50">
+                    <path fill="transparent" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
+                  </svg>
+                </div>
+              </button>
+            </div>
+
+            <div>
+              <button
+                id="reviewBtn"
+                onclick="validateForm(event)"
+                title="Are you sure you filled in the correct information?"
+              >
+                <p>Review</p>
+                <div class="check-box">
+                  <svg viewBox="0 0 50 50">
+                    <path fill="transparent" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
+                  </svg>
+                </div>
+              </button>
+            </div>
+          </div>
+
+          <div style="height: 230px"></div>
+        </form>
+      </div>
+
+      <div class="popup-container">
+        <div style="text-align: right; margin: 6px">
+          <span style="cursor: pointer" onclick="closePopup()">X</span>
+        </div>
+        <div class="review-content">
+          <span class="review-label">Name:</span>
+          <span class="review-data" id="reviewName"></span>
+
+          <span class="review-label">Date of birth:</span>
+          <span class="review-data" id="reviewDob"></span>
+
+          <span class="review-label">Address:</span>
+          <span class="review-data" id="reviewAddress"></span>
+
+          <span class="review-label">Email:</span>
+          <span class="review-data" id="reviewEmail"></span>
+
+          <span class="review-label">Username:</span>
+          <span class="review-data" id="reviewUsername"></span>
+        </div>
+
+        <div style="display: flex; justify-content: center; margin-top: 32px">
+          <button onclick="submitForm()" id="btn" title="Ready to submit?">
+            <p id="btnText">Submit</p>
+            <div class="check-box">
+              <svg viewBox="0 0 50 50">
+                <path fill="transparent" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
+              </svg>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="./Assignment_4.js"></script>
+  <script src="./Assigment_4_formValidation.js"></script>
+</html>
